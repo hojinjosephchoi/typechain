@@ -60,3 +60,7 @@ $ ./node_modules/.bin/tsc
 ~~~
 $ yarn add tsc-watch --dev
 ~~~
+
+
+# 5 Interfaces on Typescript
+- interface -> model 정의할 때 유용
