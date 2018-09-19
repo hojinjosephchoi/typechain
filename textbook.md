@@ -11,3 +11,42 @@ Learning Typescript by making a Blockchain with it.
 ~~~
 $ yarn init
 ~~~
+
+# 2 Setting Typescript Up
+- typescript 설치
+~~~
+$ yarn add typescript
+~~~
+
+- tsconfig.json: Typescript에게 어떻게 javascript로 변환하는지 알려주면서 옵션을 줄 수 있다.
+- tsconfig.json 초기옵션
+~~~
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2015",
+    "sourceMap": true
+  },
+  "include": [
+    "index.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
+~~~
+
+- tsc (typscript compiler)를 사용한 index.ts -> index.js, index.js.map 생성
+~~~
+$ tsc
+또는
+$ ./node_modules/.bin/tsc
+~~~
+
+- yarn start 시 ts 컴파일 + js 실행되도록 package.json 수정
+~~~
+"scripts": {
+  "start": "node index.js",
+  "prestart": "tsc"
+}
+~~~
