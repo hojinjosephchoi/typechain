@@ -53,3 +53,10 @@ $ ./node_modules/.bin/tsc
 
 
 # 3 First steps with Typescript
+
+
+# 4 Types in Typescript
+- typescript파일이 수정될 때마다 컴파일 할 수 있도록 함
+~~~
+$ yarn add tsc-watch --dev
+~~~
