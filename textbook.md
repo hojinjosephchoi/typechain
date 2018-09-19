@@ -50,3 +50,6 @@ $ ./node_modules/.bin/tsc
   "prestart": "tsc"
 }
 ~~~
+
+
+# 3 First steps with Typescript
