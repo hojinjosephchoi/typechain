@@ -104,3 +104,11 @@ $ yarn add --dev prettier-eslint
 ```
 
 - [https://velopert.com/3671](https://velopert.com/3671)
+
+# 12 Conclusions
+
+- 예측 가능한 함수 리턴 타입
+- 예측 가능한 함수 인자 타입
+- class 내 static 메소드
+- list/array 내 같은 type(class)가 아닌 object 를 push 하지 않게 막을 수 있다.
+- React, Redux, GraphQL, express, nodejs 로 일할 때 좋음
