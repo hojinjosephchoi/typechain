@@ -69,3 +69,19 @@ $ yarn add tsc-watch --dev
 # 6 Classes on Typescript part One
 - interface는 js로 컴파일하지 않는다.
 - class는 js로 컴파일 한다.
+
+
+# 7 & 8 & 9 Blockchain Creating a Block
+- block의 속성, 타입
+- function의 리턴타입 등등을 확인할 수 있다.
+
+- crypto-js 설치 (hash 생성)
+~~~
+$ yarn add crypto-js
+~~~
+
+- typescript에서 import하는 과정은 약간 다르다...
+- 기본적인 import 방법
+~~~
+import * as CryptoJS from 'crypto-js';
+~~~

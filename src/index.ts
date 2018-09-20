@@ -1,23 +1,66 @@
-class Human {
-  public name: string;
-  public age: number;
-  public gender: string;
+import * as CryptoJS from 'crypto-js';
 
-  constructor(name: string, age: number, gender: string) {
-    //클래스가 시작할 때마다 호출된다.
-    this.name = name;
-    this.age = age;
-    this.gender = gender;
+class Block {
+  public index: number;
+  public hash: string;
+  public previousHash: string;
+  public data: string;
+  public timestamp: number;
+
+  constructor(
+    index: number,
+    hash: string,
+    previousHash: string,
+    data: string,
+    timestamp: number
+  ){
+    this.index = index;
+    this.hash = hash;
+    this.previousHash = previousHash;
+    this.data = data;
+    this.timestamp = timestamp;
   }
-};
 
+  static calculateBlockHash = (
+    index: number, 
+    previousHash: string, 
+    timestamp: number, 
+    data: string
+  ): string => {
+    return CryptoJS.SHA256(index + previousHash + timestamp + data).toString();
+  };
+}
 
-const hojin = new Human('Hojin', 22, 'male');
+const genesisBlock: Block = new Block(0, '19191919919', '', 'Hello', 123456);
 
-const sayHi = (person: Human): string => {
-  return `Hello ${person.name}, you are ${person.age}, you are a ${person.gender}!`;
-};
+let blockchains: Block[] = [genesisBlock];
 
-console.log(sayHi(hojin));
+const getBlockchains = (): Block[] => blockchains;
+
+const getLatestBlock = (): Block => blockchains[blockchains.length - 1];
+
+const getNewTimeStamp = (): number => Math.round(new Date().getTime() / 1000);
+
+const createNewBlock = (data: string): Block => {
+  const previousBlock: Block = getLatestBlock();
+  const newIndex: number = previousBlock.index + 1;
+  const newTimestamp: number = getNewTimeStamp();
+  const newHash: string = Block.calculateBlockHash(
+    newIndex, 
+    previousBlock.hash, 
+    newTimestamp, 
+    data
+  );
+  const newBlock: Block = new Block(
+    newIndex, 
+    newHash, 
+    previousBlock.hash, 
+    data, 
+    newTimestamp
+  );
+  return newBlock;
+}
+
+console.log(createNewBlock('hello'), createNewBlock('bye bye'));
 
 export {};
