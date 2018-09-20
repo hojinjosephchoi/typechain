@@ -64,3 +64,8 @@ $ yarn add tsc-watch --dev
 
 # 5 Interfaces on Typescript
 - interface -> model 정의할 때 유용
+
+
+# 6 Classes on Typescript part One
+- interface는 js로 컴파일하지 않는다.
+- class는 js로 컴파일 한다.
